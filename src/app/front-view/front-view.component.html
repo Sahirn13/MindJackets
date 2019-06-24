@@ -1,0 +1,33 @@
+<div  class="clear"></div>
+<div  class="pd-t-20" *ngIf="!selected && option === ''">
+  <button mat-raised-button color="primary" class="direction-button"
+  (click)="selectRight()" type="button">
+    Front Top Left
+  </button>
+  <button mat-raised-button color="primary" class="direction-button"
+  (click)="selectLeft()" type="button">
+    Front Top Right
+  </button>
+</div>
+<div  class="pd-t-20" *ngIf="selected && option === ''">
+  <button mat-raised-button color="primary" class="direction-button"
+          type="button" (click)="option = 'artwork'">
+    Artwork
+  </button>
+  <button mat-raised-button color="primary" class="direction-button"
+          type="button">
+    Upload Image
+    <input accept="image/*" type="file" (change)="uploadImage($event)">
+  </button>
+  <button mat-raised-button color="primary" class="direction-button"
+          type="button" (click)="openText()">
+    Text
+  </button>
+  <button mat-raised-button color="primary" class="direction-button"
+          type="button" (click)="exitSelect()">
+    Done
+  </button>
+</div>
+<app-add-text *ngIf="option === 'text'" [textArea]="'front-' + side" (done)="option = ''"></app-add-text>
+<app-add-artwork *ngIf="option === 'artwork'" [artWorkArea]="'front-' + side" (done)="option = ''"></app-add-artwork>
+

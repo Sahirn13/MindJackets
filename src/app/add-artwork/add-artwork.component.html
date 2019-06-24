@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col align-self-center">
+      <div id="artworkMenu">
+        <a *ngFor="let count of counter" style="width: 50%;" (click)="addArtwork(count)">
+          <img src="../../assets/artwork/{{count}}.svg" id="artwork-number-{{count}}">
+        </a>
+      </div>
+    </div>
+    <!--
+    <div>
+      <app-color-picker [part]="artWorkArea"></app-color-picker>
+    </div>
+    -->
+  </div>
+  <br><br>
+  <button mat-raised-button color="primary" type="btn" (click)="exit()"> Done </button>
+</div>
+<!----><div class="clearfix">
+</div>
+<br>

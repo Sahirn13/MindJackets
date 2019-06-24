@@ -1,0 +1,25 @@
+<h3 mat-dialog-title>Confirm Your Order</h3>
+<mat-dialog-content [formGroup]="formGroup">
+  <mat-form-field>
+    <input matInput
+           placeholder="Name"
+           formControlName="name">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput
+           placeholder="Email"
+           formControlName="email">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput
+           placeholder="Mobile Number"
+           formControlName="number">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary"(click)="send()">Send</button>
+  <button class="mat-raised-button"(click)="close()">Close</button>
+</mat-dialog-actions>

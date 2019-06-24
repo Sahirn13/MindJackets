@@ -1,0 +1,34 @@
+<div  class="clear"></div>
+<div  class="pd-t-20" *ngIf="areaToEdit === ''">
+  <button mat-raised-button color="primary" class="direction-button" (click)="outlineBox('center')">
+    Back Center
+  </button>
+  <button mat-raised-button color="primary" class="direction-button" (click)="outlineBox('top')">
+    Back Top
+  </button>
+  <button mat-raised-button color="primary" class="direction-button" (click)="outlineBox('bottom')">
+    Back Bottom
+  </button>
+</div>
+<app-add-text *ngIf="areaToEdit === 'top'" [textArea]="'back-top'" (done)="clearAreaToEdit()"></app-add-text>
+<app-add-text *ngIf="areaToEdit === 'bottom'" [textArea]="'back-bottom'" (done)="clearAreaToEdit()"></app-add-text>
+<div *ngIf="areaToEdit === 'center'">
+  <button mat-raised-button color="primary" class="direction-button"
+          type="button" (click)="areaToEdit = 'center-artwork'">
+    Artwork
+  </button>
+  <button mat-raised-button color="primary" class="direction-button"
+          type="button">
+    Upload Image
+    <input accept="image/*" type="file" (change)="uploadImage($event)">
+  </button>
+  <button mat-raised-button color="primary"
+          type="button" (click)="clearAreaToEdit()" class="direction-button">
+    Done
+  </button>
+  <br>
+  <div class="clearfix"></div>
+</div>
+<div *ngIf="areaToEdit === 'center-artwork'">
+  <app-add-artwork [artWorkArea]="'back-center'" (done)="areaToEdit = 'center'"></app-add-artwork>
+</div>

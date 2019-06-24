@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@font-face {
+  font-family: Aktuelle;
+  src: url('./assets/fonts/Aktuelle.ttf');
+}
+@font-face {
+  font-family: Amarillo;
+  src: url('./assets/fonts/Amarillo.ttf');
+}
+@font-face {
+  font-family: Athletic;
+  src: url('./assets/fonts/Athletic.ttf');
+}
+@font-face {
+  font-family: Brannboll F;
+  src: url('./assets/fonts/BrannbollFS.ttf');
+}
+@font-face {
+  font-family: Bulletto Killa;
+  src: url('./assets/fonts/BullettoKilla.ttf');
+}
+@font-face {
+  font-family: College;
+  src: url('assets/fonts/College.ttf');
+}
+@font-face {
+  font-family: CollegiateBlackFLF;
+  src: url('./assets/fonts/CollegiateBlackFLF.ttf');
+}
+@font-face {
+  font-family: CollegiateBorderFLF;
+  src: url('./assets/fonts/CollegiateBorderFLF.ttf');
+}
+@font-face {
+  font-family: CollegiateFLF;
+  src: url('./assets/fonts/CollegiateFLF.ttf');
+}
+@font-face {
+  font-family: CollegiateInsideFLF;
+  src: url('./assets/fonts/CollegiateInsideFLF.ttf');
+}
+@font-face {
+  font-family: CollegiateOutlineFLF;
+  src: url('./assets/fonts/CollegiateOutlineFLF.ttf');
+}
+@font-face {
+  font-family: Krinkes Regular;
+  src: url('assets/fonts/KrinkesRegular.ttf');
+}
+@font-face {
+  font-family: SignPainter HouseScript;
+  src: url('./assets/fonts/SignPainterHouseScriptRegular.ttf');
+}
+@font-face {
+  font-family: Superstar M54;
+  src: url('./assets/fonts/SuperstarM54.ttf');
+}
+@font-face {
+  font-family: TypeWriter-Serial;
+  src: url('./assets/fonts/TypeWriter-Serial-Regular.ttf');
+}
+@font-face {
+  font-family: Varsity;
+  src: url('./assets/fonts/Varsity.ttf');
+}
+@font-face {
+  font-family: United Sans Bold;
+  src: url("./assets/fonts/UnitedSansSemiCond-Bold.otf");
+}
+@font-face {
+  font-family: United Serif Bold;
+  src: url("./assets/fonts/UnitedSerifReg-Bold.otf");
+}
+@font-face {
+  font-family: United Serif Heavy;
+  src: url("./assets/fonts/UnitedSerifReg-Heavy.otf");
+}
+
+

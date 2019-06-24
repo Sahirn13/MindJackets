@@ -1,0 +1,111 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <div class="content">
+    <div class="container">
+      <div id="mainview">
+        <div class="product-design-view clearfix row outline">
+          <div class="jacket-view col-sm">
+            <app-front [ngStyle]="{'display': hideFrontView() ? 'none' : ''}"></app-front>
+            <app-back [ngStyle]="{'display': hideBackView() ? 'none' : ''}"></app-back>
+            <app-left [ngStyle]="{'display': hideLeftSleeve() ? 'none' : ''}"></app-left>
+            <app-right [ngStyle]="{'display': hideRightSleeve() ? 'none' : ''}"></app-right>
+            <app-inside [ngStyle]="{'display': hideInner() ? 'none' : ''}"></app-inside>
+          </div>
+          <div class="customizer-controls col-sm" *ngIf="!reviewPageToggle">
+            <form>
+
+              <div class="design-view-controls clearfix row">
+
+                <button mat-button type="button" class="col-xs-3 col-sm-3 col-md-2 btn design-view-single"
+                        (click)="selectView('color-view')">
+                    Colors
+                </button>
+
+                <button mat-button class="col-xs-3 col-sm-3 col-md-2 btn design-view-single" type="button"
+                        (click)="selectView('front-view')">
+                    Front
+                </button>
+
+                <button mat-button class="col-xs-3 col-sm-3 col-md-2 btn design-view-single" type="button"
+                        (click)="selectView('back-view')">
+                  Back
+                </button>
+
+                <button mat-button class="col-xs-3 col-sm-3 col-md-2 btn design-view-single" type="button"
+                        (click)="selectView('left-view')">
+                  Left
+                </button>
+
+                <button mat-button class="col-xs-3 col-sm-3 col-md-2 btn design-view-single" type="button"
+                        (click)="selectView('right-view')">
+                  Right
+                </button>
+
+                <button mat-button class="col-xs-3 col-sm-3 col-md-2 btn design-view-single" type="button"
+                        (click)="selectView('inner-view')">
+                  Inner
+                </button>
+
+              </div>
+              <div id="overall-color-picker-buttons" *ngIf="!showColors && selectedView === 'color-view'">
+                <button mat-raised-button color="primary" *ngFor="let area of areas" class="direction-button"
+                        (click)="openColors(area)">
+                  {{area}}
+                </button>
+              </div>
+              <app-color-picker *ngIf="showColors && selectedView === 'color-view'" [part]="selectedPart"></app-color-picker>
+              <div *ngIf="showColors && selectedView === 'color-view'">
+                <div  class="clear"></div>
+                <div  class="pd-t-20">
+                  <button  class="btn col-xs-5 col-xs-offset-1 jacket-save"
+                           mat-raised-button color="accent" type="btn"
+                           (click)="showColors = !showColors"> Done </button>
+                </div>
+              </div>
+
+              <div *ngIf="selectedView ==='front-view'">
+                <app-front-view></app-front-view>
+              </div>
+
+              <div *ngIf="selectedView ==='back-view'">
+                <app-back-view></app-back-view>
+              </div>
+
+              <div *ngIf="selectedView ==='left-view'">
+                <app-left-view></app-left-view>
+              </div>
+
+              <div *ngIf="selectedView ==='right-view'">
+                <app-right-view></app-right-view>
+              </div>
+
+              <div *ngIf="selectedView ==='inner-view'">
+                <app-inner-view></app-inner-view>
+              </div>
+
+              <div *ngIf="!showColors || selectedView !== 'color-view'">
+                <div class="clear"></div>
+                    <button mat-raised-button color="accent" class="pd-t-20 direction-button" id="restart-button" (click)="restart()">
+                      <a>
+                        Start Again
+                      </a>
+                    </button>
+                    <button mat-raised-button color="warn" class="direction-button pd-t-20 col-xs-5 col-xs-offset-2"
+                            id="finish-button" (click)="toggleReview()">
+                      <a>
+                        Finish and Preview
+                      </a>
+                    </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="reviewPageToggle">
+        <app-review (done)="reviewPageToggle = false"></app-review>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

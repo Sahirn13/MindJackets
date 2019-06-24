@@ -1,0 +1,15 @@
+<div  class="clear"></div>
+<div  class="pd-t-20" *ngIf="optionSelected === ''">
+  <button mat-raised-button color="primary" class="direction-button" (click)="optionSelected = 'artwork'">
+    Artwork
+  </button>
+  <button mat-raised-button color="primary" class="direction-button" type="button">
+    Upload Image
+    <input accept="image/*" type="file" (change)="uploadImage($event)">
+  </button>
+  <button mat-raised-button color="primary" class="direction-button" (click)="optionSelected = 'text'">
+    Text
+  </button>
+</div>
+<app-add-text *ngIf="optionSelected === 'text'" [textArea]="'right-sleeve'" (done)="optionSelected = ''"></app-add-text>
+<app-add-artwork *ngIf="optionSelected === 'artwork'" [artWorkArea]="'right-sleeve'" (done)="optionSelected = ''"></app-add-artwork>

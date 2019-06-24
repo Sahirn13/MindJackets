@@ -1,0 +1,6 @@
+<div>
+  <h3 >Select a color : </h3>
+
+  <span class="color" *ngFor="let color of colors" [ngStyle]="{'background': color}" (click)="colorSelected(color)"></span>
+
+</div>

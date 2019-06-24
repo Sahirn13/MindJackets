@@ -1,0 +1,10 @@
+.option-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background: #fff;
+  max-height: 293px;
+  overflow: auto;
+}

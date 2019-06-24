@@ -1,0 +1,119 @@
+.product-design-view {
+  background:#f8f8f8;
+  padding:20px;
+  margin:0 0 35px;
+}
+
+svg {
+  max-height: 500px;
+  min-height: 450px;
+}
+
+.direction-button {
+  font-family: Helvetica;
+  font-size: 16px;
+  margin-bottom:15px;
+  height:55px;
+  width:48%;
+  line-height: 54px;
+  text-align: center;
+  float:left;
+  position: relative;
+  cursor: pointer;
+}
+
+.direction-button input[type="file"]{
+  display: block;position: absolute;left:0;top:0;width:100%;height:100%;opacity: 0;
+}
+
+.design-view-controls {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.design-view-single:hover {
+  color: crimson;
+}
+
+
+.direction-button:nth-child(2n){
+  float: right;
+}
+
+.direction-button:focus{
+  text-decoration:none;
+}
+.direction-button.active, .direction-button:hover, .mat-raised-button.mat-primary:hover {
+  border-color:#c91638;
+  color:#c91638;
+}
+
+.mat-raised-button.mat-accent:hover {
+  border-color: yellow;
+  color: black;
+}
+
+.design-place-outline.out.active-path {stroke:#000000; stroke-miterlimit:10}
+.design-place-outline.in.active-path {stroke:#000000; stroke-miterlimit:10; stroke-dasharray:3;}
+
+.outline {
+  border: 5px solid #ffdbc7;
+  background-color: #fff9f5;
+}
+
+.mat-raised-button.mat-primary {
+  background-color: #f5fffb;
+  color: black;
+}
+
+.mat-raised-button.mat-warn {
+  background-color: black;
+}
+
+.mat-raised-button.mat-accent {
+  background-color: crimson;
+  color: white;
+}
+
+#restart-button, #finish-button {
+  width: 100%;
+}
+
+.color{
+  display:inline-block;
+  width:20px;
+  height:20px;
+  margin-right:5px;
+  margin-bottom:7px;
+  cursor:pointer;
+}
+
+.jacket-body{
+
+}
+
+.jacket-sleeves {
+
+}
+
+.jacket-rib-1 {
+
+}
+
+.jacket-rib-2 {
+
+}
+
+.jacket-pocket {
+
+}
+
+.jacket-buttons {
+
+}
+
+@media all and (min-width:320px) and (max-width:767px) {
+  #Left-SVG {
+    
+  }
+}

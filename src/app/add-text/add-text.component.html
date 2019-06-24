@@ -1,0 +1,46 @@
+ <h2>Add Text</h2>
+  <div class="container">
+
+    <div class="row justify-content-between" style="text-align: center">
+      <div class="col-md-auto">
+        <mat-form-field>
+            <input matInput type="text" [(ngModel)]="userText" placeholder="Type your text" (keyup)="changeText($event)"
+                   [maxlength]="textArea === 'left-sleeve' || textArea === 'right-sleeve' ? '2' : ''">
+            <button mat-button *ngIf="userText" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+              <mat-icon>x</mat-icon>
+            </button>
+        </mat-form-field>
+      </div>
+      <div class="col-md-auto">
+        <mat-form-field>
+          <mat-label>Choose a Font</mat-label>
+          <mat-select [disableOptionCentering]="true" [(value)]="selectedFont" [ngStyle]="{'font-family': selectedFont}">
+            <mat-option *ngFor="let font of fonts" [ngStyle]="{'font-family': font}" [value]="font"
+                        (onSelectionChange)="changeFont($event, font)">{{font}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <h3 >Font Size: </h3>
+    <div class="row justify-content-center">
+      <div class="col-md-auto">
+        <button mat-button (click)="increaseSize()">+</button>
+      </div>
+      <div class="col-md-auto">
+        <span class="font-size">{{fontSize}}</span>
+      </div>
+      <div class="col-md-auto">
+        <button mat-button (click)="reduceSize()">-</button>
+      </div>
+    </div>
+    <div>
+      <h3 >Font Color: </h3>
+      <span class="color" *ngFor="let color of colors" [ngStyle]="{'background': color}" (click)="setFontColor(color)"></span>
+    </div>
+    <br><br>
+    <button mat-raised-button color="primary" type="btn" (click)="exit()"> Done </button>
+  </div>
+
+  <br>
+  <!----><div class="clearfix">
+</div>

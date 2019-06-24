@@ -1,0 +1,25 @@
+.product-design-view {
+  background:#f8f8f8;
+  padding:20px;
+  margin:0 0 35px;
+}
+
+.outline {
+  border: 5px solid #ffdbc7;
+  background-color: #fff9f5;
+}
+
+canvas {
+  max-height: 500px;
+  min-height: 450px;
+}
+
+svg {
+  max-height: 500px;
+  min-height: 450px;
+}
+
+#reviewMenu {
+
+}
+
