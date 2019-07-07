@@ -27,21 +27,22 @@ export class ReviewFormComponent implements OnInit {
   }
 
   send() {
-    let json = {
+    const json = {
       name: this.formGroup.value.name,
       email: this.formGroup.value.email,
       number: this.formGroup.value.number,
       frontUrl: this.data.frontUrl,
       backUrl: this.data.backUrl,
       leftUrl: this.data.leftUrl,
-      rightUrl: this.data.rightUrl
+      rightUrl: this.data.rightUrl,
+      innerUrl: this.data.innerUrl
     };
-    this.reviewFormService.postData('http://localhost:3000/sendmail', json).subscribe(
+    this.reviewFormService.postData('https://jacketsemailer.herokuapp.com/sendmail', json).subscribe(
       data => {
-        console.log("email sent");
+        console.log('email sent');
       }
     );
-    //this.close();
+    this.close();
   }
 
   close() {

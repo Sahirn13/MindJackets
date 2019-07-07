@@ -36,8 +36,8 @@ export class AppComponent implements OnInit {
   }
 
   toggleReview() {
-
     this.reviewPageToggle = true;
+    this.selectedView = '';
   }
 
   hideFrontView(): boolean {

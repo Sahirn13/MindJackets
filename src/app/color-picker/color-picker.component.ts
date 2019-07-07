@@ -43,6 +43,9 @@ export class ColorPickerComponent implements OnInit {
     if(this.svgService.rightSvg) {
       document.getElementById('Right-SVG').parentNode.replaceChild(this.svgService.rightSvg, document.getElementById('Right-SVG'));
     }
+    if(this.svgService.innerSvg) {
+        document.getElementById('Inner-SVG').parentNode.replaceChild(this.svgService.innerSvg, document.getElementById('Inner-SVG'));
+    }
   }
 
 }

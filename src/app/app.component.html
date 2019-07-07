@@ -103,7 +103,7 @@
       </div>
 
       <div *ngIf="reviewPageToggle">
-        <app-review (done)="reviewPageToggle = false"></app-review>
+        <app-review (done)="reviewPageToggle = false; selectedView = 'color-view'"></app-review>
       </div>
     </div>
   </div>

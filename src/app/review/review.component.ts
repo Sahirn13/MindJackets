@@ -13,16 +13,24 @@ export class ReviewComponent implements OnInit {
   public back: any;
   public left: any;
   public right: any;
+  public inner: any;
 
   public frontUrl: any;
   public backUrl: any;
   public leftUrl: any;
   public rightUrl: any;
+  public innerUrl: any;
   @Output() done = new EventEmitter<any>();
 
   constructor(private svgService: SvgService, private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.front = document.createElement("canvas");
+    this.back = document.createElement("canvas");
+    this.left = document.createElement("canvas");
+    this.right = document.createElement("canvas");
+    this.inner = document.createElement("canvas");
+
     this.svgService.applyColors();
     if(this.svgService.frontSvg) {
       document.getElementById('Layer_1').parentNode.replaceChild(this.svgService.frontSvg, document.getElementById('Layer_1'));
@@ -35,6 +43,9 @@ export class ReviewComponent implements OnInit {
     }
     if(this.svgService.rightSvg) {
       document.getElementById('Right-SVG').parentNode.replaceChild(this.svgService.rightSvg, document.getElementById('Right-SVG'));
+    }
+    if(this.svgService.innerSvg) {
+      document.getElementById('Inner-SVG').parentNode.replaceChild(this.svgService.innerSvg, document.getElementById('Inner-SVG'));
     }
   }
 
@@ -56,31 +67,28 @@ export class ReviewComponent implements OnInit {
     if(this.svgService.rightImage === undefined) {
       this.svgService.createRightSleeveImage();
     }
-    this.createFrontCanvas();
-    this.createBackCanvas();
-    this.createRightCanvas();
-    this.createLeftCanvas();
-    console.log(this.frontUrl);
-    console.log(this.backUrl);
-    console.log(this.leftUrl);
-    console.log(this.rightUrl);
-
+    if(this.svgService.innerImage === undefined) {
+      this.svgService.createInnerImage();
+    }
+    //this.createFrontCanvas();
+    //this.createBackCanvas();
+    //this.createRightCanvas();
+    //this.createLeftCanvas();
+    //this.createInnerCanvas();
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      frontUrl: this.frontUrl,
-      backUrl: this.backUrl,
-      leftUrl: this.leftUrl,
-      rightUrl: this.rightUrl
+      frontUrl: this.svgService.frontImage.src,
+      backUrl: this.svgService.backImage.src,
+      leftUrl: this.svgService.leftImage.src,
+      rightUrl: this.svgService.rightImage.src,
+      innerUrl: this.svgService.innerImage.src
     }
-
     this.dialog.open(ReviewFormComponent, dialogConfig);
   }
 
   private createFrontCanvas() {
-    this.front = document.createElement("Canvas");
     this.front.width = this.svgService.frontImage.width * 2;
     this.front.height = this.svgService.frontImage.height * 2;
     (this.front as HTMLCanvasElement).getContext('2d').drawImage(this.svgService.frontImage, this.front.width / 2 - this.svgService.frontImage.width * 2 / 2,
@@ -89,7 +97,6 @@ export class ReviewComponent implements OnInit {
   }
 
   private createBackCanvas() {
-    this.back = document.createElement("canvas");
     this.back.width = this.svgService.backImage.width * 2;
     this.back.height = this.svgService.backImage.height * 2;
     (this.back as HTMLCanvasElement).getContext('2d').drawImage(this.svgService.backImage, this.back.width / 2 - this.svgService.backImage.width * 2 / 2,
@@ -98,7 +105,6 @@ export class ReviewComponent implements OnInit {
   }
 
   private createLeftCanvas() {
-    this.left = document.createElement("canvas");
     this.left.width = this.svgService.leftImage.width * 2;
     this.left.height = this.svgService.leftImage.height * 2;
     (this.left as HTMLCanvasElement).getContext('2d').drawImage(this.svgService.leftImage, this.left.width / 2 - this.svgService.leftImage.width * 2 / 2,
@@ -107,11 +113,21 @@ export class ReviewComponent implements OnInit {
   }
 
   private createRightCanvas() {
-    this.right = document.createElement("canvas");
     this.right.width = this.svgService.rightImage.width * 2;
     this.right.height = this.svgService.rightImage.height * 2;
     (this.right as HTMLCanvasElement).getContext('2d').drawImage(this.svgService.rightImage, this.right.width / 2 - this.svgService.rightImage.width * 2 / 2,
       this.right.height / 2 - this.svgService.rightImage.height * 2 / 2);
     this.rightUrl = this.right.toDataURL();
   }
+
+  /*
+  private createInnerCanvas() {
+    this.inner.width = this.svgService.innerImage.width * 2;
+    this.inner.height = this.svgService.innerImage.height * 2;
+    (this.inner as HTMLCanvasElement).getContext('2d').drawImage(this.svgService.innerImage, this.inner.width / 2 - this.svgService.innerImage.width * 2 / 2,
+        this.inner.height / 2 - this.svgService.innerImage.height * 2 / 2);
+    this.innerUrl = this.inner.toDataURL();
+    console.log(this.svgService.innerImage.src);
+  }
+  */
 }

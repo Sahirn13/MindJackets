@@ -65,6 +65,15 @@ export class SvgService {
     this.leftImage = img;
   }
 
+  createInnerImage() {
+    let img = document.createElement('img');
+    let xml = this.serializer.serializeToString(document.getElementById('Inner-SVG'));
+    img.src = this.convertToB64(xml);
+    img.height = document.getElementById('Inner-SVG').clientHeight / 2;
+    img.width = document.getElementById('Inner-SVG').clientWidth / 2;
+    this.innerImage = img;
+  }
+
   convertToB64(item: string): string {
     let svg64 = btoa(item);
     let b64Start = 'data:image/svg+xml;base64,';
